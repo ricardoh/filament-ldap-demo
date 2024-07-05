@@ -3,7 +3,7 @@
 ```bash
 cp .env.example .env
 touch database/database.sqlite
-docker run --rm --interactive --tty --volume $PWD:/app --user $(id -u):$(id -g) laravelsail/php83-composer:latest install
+docker run --rm -v "$(pwd)":/opt -w /opt laravelsail/php83-composer:latest composer install --ignore-platform-req=ext-ldap --ignore-platform-req=ext-intl
 vendor/bin/sail up -d
 vendor/bin/sail artisan key:generate
 vendor/bin/sail artisan migrate
