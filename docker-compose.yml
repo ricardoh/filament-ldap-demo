@@ -30,13 +30,6 @@ services:
             - '${FORWARD_MAILPIT_DASHBOARD_PORT:-8025}:8025'
         networks:
             - sail
-    ldap:
-        image: 'thoteam/slapd-server-mock'
-        ports:
-            - '${FORWARD_LDAP_PORT:-389}:389'
-            - '${FORWARD_LDAPS_PORT:-636}:636'
-        networks:
-            - sail
 networks:
     sail:
         driver: bridge
